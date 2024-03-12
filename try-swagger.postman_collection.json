@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "d9945fe6-bdd7-4d7d-818f-7403e342d235",
+		"name": "try-swagger",
+		"description": "Welcome to my Postman collection for the project hosted at [GitHub](https://github.com/iqmalr/try-swagger)! In this collection, I've compiled a set of requests that correspond to the Express-based API documented with Swagger. The Swagger documentation provides a clear overview of the available endpoints, request methods, and expected responses.\n\nThis collection is designed to help you interact with the API, ensuring smooth testing and exploration of the functionality offered by the Express application. Whether you are a developer looking to understand the API better or a tester ensuring the system's reliability, this Postman collection is here to assist you.\n\nFeel free to leverage these requests to make API calls, and if you have any questions or suggestions, don't hesitate to share them. Happy testing, and enjoy exploring the capabilities of the Express API documented with Swagger!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16586484"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3001/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users"
+					]
+				},
+				"description": "This endpoint retrieves a list of users.\n\n### Request\n\n`GET /users`\n\n### Response\n\n- Status: 200\n- Content-Type: application/json\n    \n\nExample response body:\n\n``` json\n[\n    {\n        \"id\": 0,\n        \"name\": \"\",\n        \"email\": \"\"\n    }\n]\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/users/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"1"
+					]
+				},
+				"description": "This endpoint retrieves user information based on the provided user ID.\n\n### Request\n\n#### HTTP GET\n\n```\nhttp://localhost:3001/users/1\n\n ```\n\n### Response\n\n- Status: 200\n- Content-Type: application/json\n    \n\nThe response will contain the user's ID, name, and email in JSON format.\n\n``` json\n{\n    \"id\": 0,\n    \"name\": \"\",\n    \"email\": \"\"\n}\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/users?name&email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Test\",\r\n    \"email\": \"test@gmail.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/users?name&email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": null
+						},
+						{
+							"key": "email",
+							"value": null
+						}
+					]
+				},
+				"description": "### Add User\n\nThis endpoint allows you to add a new user with the provided name and email.\n\n- Method: POST\n- URL: `http://localhost:3001/users?name&email`\n    \n\n#### Request Body\n\n- Type: Raw (application/json)\n    - `id` (number): The user's ID.\n    - `name` (string): The user's name.\n    - `email` (string): The user's email.\n\n#### Response\n\n- Status: 200\n- Content-Type: application/json\n- Body:\n    \n    ``` json\n        {\n            \"id\": 0,\n            \"name\": \"\",\n            \"email\": \"\"\n        }\n    \n     ```"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/users/2?id&name&emali",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Test2\",\r\n    \"email\": \"test2@gmail.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/users/2?id&name&emali",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"2"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null
+						},
+						{
+							"key": "name",
+							"value": null
+						},
+						{
+							"key": "emali",
+							"value": null
+						}
+					]
+				},
+				"description": "This endpoint allows updating user information using an HTTP PUT request to the specified URL. The request should include the user ID, name, and email in the payload.\n\n### Request Parameters\n\n- id: The unique identifier of the user (integer)\n- name: The name of the user (string)\n- email: The email address of the user (string)\n    \n\n### Request Body\n\n- Type: JSON\n- Description: The request body should contain the user ID, name, and email in the specified format.\n    \n\n### Input Example\n\nExample:\n\n``` json\n{\n    \"id\": 2,\n    \"name\": \"Test2\",\n    \"email\": \"test2@gmail.com\"\n}\n\n ```\n\n### Response\n\nUpon a successful execution, the endpoint returns a status code of 200 and the updated user information in JSON format, including the user's ID, name, and email.\n\nExample:\n\n``` json\n{\n    \"id\": 0,\n    \"name\": \"\",\n    \"email\": \"\"\n}\n\n ```"
+			},
+			"response": []
+		}
+	]
+}
